@@ -127,7 +127,6 @@ const colorGrey100 = '#f5f5f5';
 const colorGrey100Dark = '#c2c2c2';
 
 // alpha values
-
 const colorAlpha00 = '00';
 const colorAlpha10 = '10';
 const colorAlpha20 = '20';
@@ -420,18 +419,11 @@ const chart = Highcharts.stockChart('container', {
 					dashStyle: 'ShortDot',
 					color: colorBlue,
 				},
-
-				////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-				// TODO
-				// RSI: 0 / 30 / 70 / 100, Stoch: 0 / 20 / 80 / 100
-				// Solid, ShortDash, ShortDot, ShortDashDot, ShortDashDotDot, Dot, Dash, LongDash, DashDot, LongDashDot, LongDashDotDot
-
 				{ value: 100, width: 1, dashStyle: 'ShortDot', color: colorBlue },
 				{ value: 70, width: 1, dashStyle: 'ShortDot', color: colorBlue },
 				{ value: 50, width: 1, dashStyle: 'ShortDot', color: colorBlue },
 				{ value: 30, width: 1, dashStyle: 'ShortDot', color: colorBlue },
-				{ value: -71.43, width: 1, dashStyle: 'ShortDot', color: colorBlue },
-				{ value: -0, width: 1, dashStyle: 'ShortDot', color: colorBlue },
+				{ value: 0, width: 1, dashStyle: 'ShortDot', color: colorBlue },
 			],
 			plotBands: [
 				{ color: colorDeepOrange + colorAlpha10, from: 50, to: 1e4 },
@@ -469,7 +461,7 @@ const chart = Highcharts.stockChart('container', {
 
 chart.showLoading();
 
-// zoom functions //////////////////////////////////////////////////////////////////////////////////
+// chart zoom functions ////////////////////////////////////////////////////////////////////////////
 
 const chartZoom = (...parameters) => {
 	const [/*double*/ zoomFactor] = parameters;
@@ -562,7 +554,7 @@ const chartZoomAll = () => {
 	}, 100);
 };
 
-// key press functions /////////////////////////////////////////////////////////////////////////////
+// key press handling //////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('keydown', (event) => {
 	switch (event.keyCode) {
@@ -608,7 +600,7 @@ document.addEventListener('keydown', (event) => {
 	}
 });
 
-// series helper functions /////////////////////////////////////////////////////////////////////////
+// time series functions ///////////////////////////////////////////////////////////////////////////
 
 const colors = {
 	range: [colorOrange, colorRed, colorPurple, colorIndigo, colorBlue, colorCyan, colorTeal, colorGreen, colorBrown, colorBlueGrey],
@@ -725,7 +717,7 @@ const createPlotBand = (config) => {
 	return band;
 };
 
-// fetch JSON data from http://localhost:8888/data /////////////////////////////////////////////////
+// fetch data //////////////////////////////////////////////////////////////////////////////////////
 
 // expected JSON structure
 // =======================
