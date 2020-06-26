@@ -792,7 +792,9 @@ fetch('http://localhost:8888/json')
 		}
 
 		if (json.indicator1) {
-			chart.yAxis[1].setExtremes(json.indicator1.extremes.lower * 1.025, json.indicator1.extremes.upper * 1.05); // ensures static min and max on zoom
+			if (json.indicator1.extremes.lower && json.indicator1.extremes.upper) {
+				chart.yAxis[1].setExtremes(json.indicator1.extremes.lower * 1.025, json.indicator1.extremes.upper * 1.05); // ensures static min and max on zoom
+			}
 			if (json.indicator1.range) {
 				colors.reset();
 				chart.addSeries(createSeriesRange(json.indicator1.range, 1, false));
@@ -804,7 +806,9 @@ fetch('http://localhost:8888/json')
 		}
 
 		if (json.indicator2) {
-			chart.yAxis[2].setExtremes(json.indicator2.extremes.lower * 1.05, json.indicator2.extremes.upper * 1.025); // ensures static min and max on zoom
+			if (json.indicator2.extremes.lower && json.indicator2.extremes.upper) {
+				chart.yAxis[2].setExtremes(json.indicator2.extremes.lower * 1.05, json.indicator2.extremes.upper * 1.025); // ensures static min and max on zoom
+			}
 			if (json.indicator2.range) {
 				colors.reset();
 				chart.addSeries(createSeriesRange(json.indicator2.range, 2, false));
