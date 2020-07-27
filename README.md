@@ -6,15 +6,18 @@ As part of a bigger side-project I am working on, I implemented a clean, visuall
 
 The layout consists of a main price-chart-area and two additional indicator-chart-areas below that. A navigator for the entire provided data is located in the bottom, and actually lots of data can be visualized thanks to Highchart's [data grouping](https://www.highcharts.com/docs/stock/data-grouping) functionality. The number and date formatting was optimized for Forex price data. The full template will adapt its size to the surrounding container element's size. The additional keyboard-shortcut-features implemented in JavaScript enhance the navigation experience, are described on pressing "ESC" or "?", and include zoom and exact pan depending on the data grouping.
 
-## JSON Relationship Diagram
+The code consists of:
+* the basic HTML layout in the main [highcharts-stock-template.html](/src/highcharts-stock-template.html)
+* the Highcharts Stock configuration and additional features in the [script.js](/src/script.js)
+* the required styling in the [style.css](/src/style.css)
 
-🚧👷 work in progress 👷🚧
+The template expects to be filled with JSON data in the format specified in the [JSON Relationship Diagram](#json-relationship-diagram) and shown in the [JSON Sample](#json-sample).
+
+## JSON Relationship Diagram
 
 [![](/assets/JSON.png)](/assets/JSON.png)
 
 ## JSON Sample
-
-🚧👷 work in progress 👷🚧
 
 ```
 {
